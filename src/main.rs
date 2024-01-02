@@ -9,7 +9,7 @@ fn main() -> anyhow::Result<()> {
     // let mut led = PinDriver::output(peripherals.pins.gpio4)?;
     let mut led = PinDriver::output(peripherals.pins.gpio2)?; // built-in led
 
-    println!("Hello world!");
+    println!("Hello rusty blinky!");
     loop {
         led.set_high()?;
         // we are sleeping here to make sure the watchdog isn't triggered
