@@ -1,3 +1,5 @@
+use std::io::{self, Write};
+
 use esp_idf_hal::delay::FreeRtos;
 use esp_idf_hal::gpio::*;
 use esp_idf_hal::peripherals::Peripherals;
@@ -14,7 +16,8 @@ fn main() -> anyhow::Result<()> {
         led.set_high()?;
         // we are sleeping here to make sure the watchdog isn't triggered
         FreeRtos::delay_ms(1000);
-
+        print!(".");
+        io::stdout().flush()?;
         led.set_low()?;
         FreeRtos::delay_ms(1000);
     }
